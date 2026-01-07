@@ -13,7 +13,7 @@ A Python project that uses with the Transport for London (TfL) Unified API to re
 
 ## 🛠 Steps
 
-### 1. API Interaction
+### API Interaction
 
 The script uses the url:
 
@@ -39,14 +39,14 @@ The output is saved as a JSON file, example output:
 
 ```
 
-### 3. Logging Implementation
+### Logging Implementation
 
 The project uses a standard logging configuration to track internal events:
 
 * **INFO:** Records start times, successful data fetches, and file save locations.
 * **ERROR:** Captures API timeouts or response codes/statuses.
 
-### 4. Error Handling
+### Error Handling
 
 The script is built with a **Try-Except block** to ensure it doesnt attempt to output a JSON file if an error in calling the API has occured.
 
