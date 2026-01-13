@@ -7,9 +7,9 @@ import os
 
 load_dotenv()
 
-AWS_ACCESS_KEY = os.getenv('AWS-ACCESS-KEY')
-AWS_SECRET_KEY = os.getenv('AWS-SECRET-KEY')
-BUCKET_NAME = os.getenv('BUCKET-NAME')
+AWS_ACCESS_KEY = os.getenv('AWS_ACCESS_KEY')
+AWS_SECRET_KEY = os.getenv('AWS_SECRET_KEY')
+BUCKET_NAME = os.getenv('BUCKET_NAME')
 
 
 timestamp = datetime.now().strftime('%Y-%m-%d %H-%M-%S')
