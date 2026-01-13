@@ -26,8 +26,6 @@ def load_function(data_dir, AWS_ACCESS_KEY, AWS_SECRET_KEY, bucket_name, logger)
         
         for file in json_files:
             local_file_path = os.path.join(data_dir, file)
-            print(local_file_path)
-            print(bucket_name)
             try:
                 # Upload to S3
                 s3_client.upload_file(local_file_path, bucket_name, file)
