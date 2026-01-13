@@ -4,6 +4,7 @@ from modules.load_function import load_function
 from datetime import datetime
 from dotenv import load_dotenv
 import os
+from pathlib import Path
 
 load_dotenv()
 
@@ -21,4 +22,4 @@ extract_function(url, 3, extract_logger, timestamp)
 
 load_logger = logging_function('load', timestamp)
 
-load_function('data', AWS_ACCESS_KEY, AWS_SECRET_KEY, BUCKET_NAME, load_logger)
+load_function(Path('data'), AWS_ACCESS_KEY, AWS_SECRET_KEY, BUCKET_NAME, load_logger)
