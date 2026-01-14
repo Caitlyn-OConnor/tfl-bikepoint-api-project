@@ -1,0 +1,34 @@
+id: bikepoint
+namespace: des.team
+
+tasks:
+  - id: wdir
+    type: io.kestra.plugin.core.flow.WorkingDirectory
+    tasks:
+      - id: hello
+        type: io.kestra.plugin.core.log.Log
+        message: Hello World! 🚀
+
+      - id: clone
+        type: io.kestra.plugin.git.Clone
+        url: https://github.com/Caitlyn-OConnor/tfl-bikepoint-api-project
+        branch: main
+        username: "{{ kv('github_user')}}"
+        password: "{{ kv('github_token')}}"
+
+      - id: git_python_scripts
+        type: io.kestra.plugin.scripts.python.Commands
+        env:
+          AWS_ACCESS_KEY: "{{ kv('AWS_ACCESS_KEY') }}"
+          AWS_SECRET_KEY: "{{ kv('AWS_SECRET_KEY') }}"
+          BUCKET_NAME: "{{ kv('BUCKET_NAME') }}"
+        beforeCommands:
+          - pip install -r requirements.txt
+        commands:
+          - echo "packages installed ╰(*°▽°*)╯, starting main python script 🐍"
+          - python main.py
+
+triggers:
+  - id: every_15_minutes
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "*/15 * * * *"
